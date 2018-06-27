@@ -1,0 +1,188 @@
+#{extends 'principal.html' /}
+#{set title:'Formulário' /}
+
+<meta charset="utf-8">
+<div id="pacie">
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fa fa-table"></i>Cadastro de Medico</div>
+	<div class="card-body">
+          
+		<form action="@{Medicos.salvar}" method="post">
+			
+			<input type="hidden" value="${medico?.id}" name="medico.id">
+			
+				<h6><b>Identificação</b></h6>
+				<div class="row">
+					<div class="form-group col-md-5">
+					   <label for="nome">Nome:</label>
+					   <input class="form-control" id="nome" type="text" value="${medico?.nome}" name="medico.nome">
+					</div>
+					
+					<div class="form-group col-md-2">
+					   	<label for="sexo">Sexo:</label>
+					   	<select class="form-control form-control-sm" id="sexo" type="text" value="${medico?.sexo}" name="medico.sexo">
+							<option selected="" value="">Selecione o Sexo</option>
+							#{list items:sexos, as: 'sexo'}
+								<option value="${sexo}" ${(medico?.sexo != null && medico.sexo == sexo)? 'selected':''}>${sexo}</option>
+							#{/list}
+					   	</select>
+					</div>
+					
+					<div class="form-group col-md-3">
+					   <label for="idade">Data de Nascimento:</label>
+					   <input class="form-control" id="dataNas" type="date" value="${medico?.dataNas}" name="medico.dataNas">
+					</div>
+					
+					<div class="form-group col-md-2">
+					   	<label for="estCivil">Estado Civil:</label>
+					   	<select class="form-control form-control-sm" id="estCivil" value="${medico?.estCivil}" name="medico.estCivil">
+							<option selected="" value="">Selecione</option>
+							#{list items:estadosCivis, as: 'estadocivil'}
+								<option value="${estadocivil}" ${(medico?.estCivil != null && medico.estCivil == estadocivil)? 'selected':''}>${estadocivil}</option>
+							#{/list}
+					   	</select>
+					</div>
+				</div>
+				
+				<div class="row">	
+					<div class="form-group col-md-2">
+					   <label for="naturalCidade">Naturalidade:</label>
+					   <input class="form-control" id="naturalCidade" placeholder="Nome da Cidade" type="text" value="${medico?.naturalCidade}" name="medico.naturalCidade">
+					</div>
+					
+					<div class="form-group col-md-3">
+					   <label for="estado">Estado:</label>
+					   <select class="form-control form-control-sm" id="estado" type="text" value="${medico?.estado}" name="medico.estado">
+							<option selected="" value="">Selecione o Estado (UF)</option>
+							#{list items:estados, as: 'estado'}
+								<option value="${estado}" ${(medico?.estado != null && medico.estado == estado)? 'selected':''}>${estado}</option>
+							#{/list}
+					   	</select>
+					</div>
+					
+					<div class="form-group col-md-2">
+					   	<label for="nacionalidade">Nacionalidade:</label>
+					   	<select class="form-control form-control-sm" id="nacionalidade" type="text" value="${medico?.nacionalidade}" name="medico.nacionalidade">
+							<option selected="" value="">Selecione</option>
+							#{list items:nacionalidades, as: 'nacionalidade'}
+								<option value="${nacionalidade}" ${(medico?.nacionalidade != null && medico.nacionalidade == nacionalidade)? 'selected':''}>${nacionalidade}</option>
+							#{/list}
+						</select>
+					</div>
+					
+					<div class="form-group col-md-2">
+					   <label for="cpf">CPF:</label>
+					   <input class="form-control" id="cpf" type="text" value="${medico?.cpf}" name="medico.cpf">
+					</div>
+					
+					<div class="form-group col-md-3">
+					   <label for="rg">RG:</label>
+					   <input class="form-control" id="rg" placeholder="*.***.***" type="text" value="${medico?.rg}" name="medico.rg">
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-3">
+					   <label for="telefone">Celular:</label>
+					   <input class="form-control" id="telefone" type="text" value="${medico?.telefone}" name="medico.telefone">
+					</div>
+					
+					<div class="form-group col-md-3">
+					   <label for="numCRM">CRM:</label>
+					   <input class="form-control" id="numCRM" type="text" value="${medico?.numCRM}" name="medico.numCRM">
+					</div>
+					
+					<div class="form-group col-md-6">
+					   <label for="email">E-mail:</label>
+					   <input class="form-control" id="email" type="email" value="${medico?.email}" name="medico.email">
+					</div>
+					
+				</div>	
+				
+				</br>
+				<h6><b>Formação Médica</b></h6>
+				<div class="row">
+					<div class="form-group col-md-4">
+					   <label for="nomeFacul">Formado em:</label>
+					   <input class="form-control" id="nomeFacul" type="text" value="${medico?.nomeFacul}" name="medico.nomeFacul">
+					</div>
+					
+					<div class="form-group col-md-2">
+					   <label for="anoConc">Ano de Conclusão:</label>
+					   <input class="form-control" id="anoConc" type="text" value="${medico?.anoConc}" name="medico.anoConc">
+					</div>	
+					
+					<div class="form-group col-md-3">
+					   <label for="residencia">Residencia em:</label>
+					   <input class="form-control" id="residencia" type="text" value="${medico?.residencia}" name="medico.residencia">
+					</div>
+					
+					<div class="form-group col-md-3">
+					   <label for="orgResid">Orgão Reg. Residencia:</label>
+					   <input class="form-control" id="orgResid" type="text" value="${medico?.orgResid}" name="medico.orgResid">
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-4">
+					   <label for="espPrincipal">Especialidade principal:</label>
+					   <input class="form-control" id="espPrincipal" type="text" value="${medico?.espPrincipal}" name="medico.espPrincipal">
+					</div>
+					
+					<div class="form-group col-md-4">
+					   <label for="titFormacao">Titulo (formação):</label>
+					   <input class="form-control" id="titFormacao" type="text" value="${medico?.titFormacao}" name="medico.titFormacao">
+					</div>
+				</div>	
+				
+				</br>
+				<h6><b>Endereço Residencial</b></h6>
+				<div class="row">
+					<div class="form-group col-md-5">
+					   <label for="rua">Rua ou Avenida:</label>
+					   <input class="form-control" id="rua" type="text" value="${medico?.rua}" name="medico.rua">
+					</div>
+					<div class="form-group col-md-1">
+					   <label for="numCasa">Número:</label>
+					   <input class="form-control" id="numCasa" type="text" value="${medico?.numCasa}" name="medico.numCasa">
+					</div>
+					<div class="form-group col-md-2">
+					   <label for="complemento">Complemento:</label>
+					   <input class="form-control" id="complemento" type="text" value="${medico?.complemento}" name="medico.complemento">
+					</div>
+					<div class="form-group col-md-4">
+					   <label for="bairro">Bairro:</label>
+					   <input class="form-control" id="bairro" type="text" value="${medico?.bairro}" name="medico.bairro">
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-4">
+					   <label for="cidade">Cidade:</label>
+					   <input class="form-control" id="cidade" type="text" value="${medico?.cidade}" name="medico.cidade">
+					</div>					
+					<div class="form-group col-md-3">
+					   <label for="estado">Estado:</label>
+					   <select class="form-control form-control-sm" id="estResidencia" type="text" value="${medico?.estResidencia}" name="medico.estResidencia">
+							<option selected="" value="">UF:</option>
+							#{list items:estados, as: 'estado'}
+								<option value="${estado}" ${(medico?.estResidencia != null && medico.estResidencia == estado)? 'selected':''}>${estado}</option>
+							#{/list}
+					   	</select>
+					</div>
+					<div class="form-group col-md-2">
+					   <label for="cep">CEP:</label>
+					   <input class="form-control" id="cep" type="text" value="${medico?.cep}" name="medico.cep">
+					</div>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-success">Cadastrar</button>
+					<button type="reset" class="btn btn-default" data-dismiss="modal">Limpar</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
