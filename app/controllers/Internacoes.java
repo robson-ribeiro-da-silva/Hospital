@@ -19,6 +19,22 @@ public class Internacoes extends Controller{
 	}
 	
 	public static void salvar(Internacao internacao, List<String> pacientesIDs, List<String> medicosIDs, List<String> enfermeirosIDs) {
+		/*
+		String IDs = "(";
+		if(pacientesIDs != null) {
+			IDs += String.join(", ", pacientesIDs);	
+		}
+		IDs +=  ")";
+		
+		if(pacientesIDs != null) {	
+			String query = "select p from Paciente p where p.id in " + IDs;			
+			List<Paciente> pacientes = Paciente.find(query).fetch();
+			for(Paciente paciente: pacientes) {
+				paciente.internacoes = (List<Internacao>) paciente;
+				paciente.save();
+			}
+		}*/
+		
 		
 		if(pacientesIDs == null || pacientesIDs.isEmpty()) {
 			internacao.pacientes = null;

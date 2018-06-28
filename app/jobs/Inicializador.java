@@ -24,7 +24,7 @@ public class Inicializador extends Job {
 			usuario.senha = Crypto.passwordHash("12345");
 			usuario.save();
 		}
-		
+		/*
 		if(Paciente.count() == 0){
 			
 			Paciente p1 = new Paciente();
@@ -115,6 +115,7 @@ public class Inicializador extends Job {
 			internacao.enfermeiros = Arrays.asList(new Enfermeiro[] {e1});
 			internacao.save();
 		}
+		*/
 	}
 
 }

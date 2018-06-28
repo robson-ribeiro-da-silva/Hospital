@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import play.db.jpa.Model;
 
@@ -14,7 +16,10 @@ public class Paciente extends Model {
 	
 	public String nome;
 	public String sexo;
+	
+	@Temporal(TemporalType.DATE)
 	public Date dataNas;
+	
 	public String nacionalidade;
 	public String naturalCidade;
 	public String naturalEstado;
