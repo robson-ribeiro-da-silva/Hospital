@@ -9,13 +9,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
 public class Paciente extends Model {
 	
+	@Required
 	public String nome;
+	
+	@Required
 	public String sexo;
+	
 	
 	@Temporal(TemporalType.DATE)
 	public Date dataNas;
@@ -23,6 +28,8 @@ public class Paciente extends Model {
 	public String nacionalidade;
 	public String naturalCidade;
 	public String naturalEstado;
+	
+	
 	public String tipoSanguineo;
 	public String profissao;
 	public String estCivil; 
