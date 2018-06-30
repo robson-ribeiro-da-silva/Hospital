@@ -134,17 +134,22 @@
 				<div class="row">
 					<div class="form-group col-md-4">
 					   <label for="estado">Estado:</label>
-					   <select class="form-control form-control-sm" id="estado" type="text" value="${paciente?.estado}" name="paciente.estado">
-							<option selected="" value="">Selecione o Estado (UF)</option>
-							#{list items:estados, as: 'estado'}
+					   <select class="form-control form-control-sm" id="estado" value="${paciente?.estado}" name="paciente.estado" required>
+					  		#{list items:estados, as: 'estado'}
 								<option value="${estado}" ${(paciente?.estado != null && paciente.estado == estado)? 'selected':''}>${estado}</option>
 							#{/list}
-					   	</select>
+					   </select>
+
 					</div>
 								
 					<div class="form-group col-md-5">
 					   <label for="cidade">Cidade:</label>
-					   <input class="form-control" id="cidade" placeholder="Nome da Cidade" type="text" value="${paciente?.cidade}" name="paciente.cidade">
+					   <select  class="form-control" id="cidade" value="${paciente?.cidade}" name="paciente.cidade" required>    
+                        	#{list items:cidades, as: 'cidade'}
+								<option value="${estado}" ${(paciente?.cidade != null && paciente.cidade == cidade)? 'selected':''}>${cidade}</option>
+							#{/list}
+                        <!--os options são colocados pelo script apos escolha do estado-->
+                   	   </select>
 					</div>
 					
 					<div class="form-group col-md-3">

@@ -35,7 +35,7 @@ public class Paciente extends Model {
 	public String complemento;
 	public String bairro;
 	public String rua;
-	public int numCasa;
+	public String numCasa;
 	public String tel;
 	public String telAdicional;
 	public String email;

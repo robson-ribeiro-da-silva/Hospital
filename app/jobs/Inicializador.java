@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import enums.TipoInternacao;
 import models.Enfermeiro;
 import models.Internacao;
 import models.Medico;
 import models.Paciente;
-import models.TipoInternacao;
 import models.Usuario;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;

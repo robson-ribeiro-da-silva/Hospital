@@ -25,7 +25,7 @@
 					
 					
 					<div class="input-group-append">	
-							<button type="button" class="btn btn-success" id="addd-paciente">Adicionar Paciente</button>
+							<button type="button" class="btn btn-success" id="add-paciente">Adicionar Paciente</button>
 					</div>
 					</div>
 					
@@ -98,7 +98,7 @@
 					
 					
 					<div class="input-group-append">	
-							<button type="button" class="btn btn-success" id="adddd-medico">Adicionar Medico</button>
+							<button type="button" class="btn btn-success" id="add-medico">Adicionar Medico</button>
 					</div>
 					</div>
 					
@@ -159,10 +159,16 @@
 	</div>
 </div>
 
+<!-- 
+<script src="@{'/public/bootstrap/js/enfermeiro.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+<script src="@{'/public/bootstrap/js/paciente.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+<script src="@{'/public/bootstrap/js/medico.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+-->
+
 <script>
 window.onload = function(){
 	  
-    $("#addd-paciente").click(function(){
+    $("#add-paciente").click(function(){
     	
     	var pacienteAdicionado = function(idPaciente){
     		var inputHiddenPaci = $("#paci-"+idPaciente);
@@ -213,11 +219,11 @@ window.onload = function(){
 };
 
 </script>
-
+<!-- 
 <script>
 window.onload = function(){
 	  
-    $("#adddd-medico").click(function(){
+    $("#add-medico").click(function(){
     	
     	var medicoAdicionado = function(idMedico){
     		var inputHiddenMed = $("#med-"+idMedico);
@@ -324,3 +330,4 @@ window.onload = function(){
 
 </script>
 
+-->

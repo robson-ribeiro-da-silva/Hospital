@@ -1,27 +1,32 @@
 #{extends 'principal.html' /}
 #{set title:'Formulário' /}
 
+%{
+	String tituloAcaoForm = medico.id == null? "Cadastrar":"Salvar Alterações"; 
+	String tituloForm = medico.id == null? "Cadastro":"Edição";
+}%
+
 <meta charset="utf-8">
 <div id="pacie">
 <div class="card mb-3">
 	<div class="card-header">
-		<i class="fa fa-table"></i>Cadastro de Medico</div>
+		<i class="fa fa-bookmark"></i> ${tituloForm} de Medico</div>
 	<div class="card-body">
           
-		<form action="@{Medicos.salvar}" method="post">
+		<form action="@{Medicos.salvar}" name="Filter" class="form" method="post">
 			
 			<input type="hidden" value="${medico?.id}" name="medico.id">
 			
 				<h6><b>Identificação</b></h6>
 				<div class="row">
 					<div class="form-group col-md-5">
-					   <label for="nome">Nome:</label>
-					   <input class="form-control" id="nome" type="text" value="${medico?.nome}" name="medico.nome">
+					   <label for="formGroupExampleInput"><h11>*</h11>Nome:</label>
+					   <input class="form-control" id="nome" type="text" value="${medico?.nome}" name="medico.nome" placeholder="Ex: Joao Helis Junior de Azevedo Bernardo">
 					</div>
 					
 					<div class="form-group col-md-2">
-					   	<label for="sexo">Sexo:</label>
-					   	<select class="form-control form-control-sm" id="sexo" type="text" value="${medico?.sexo}" name="medico.sexo">
+					   	<label for="formGroupExampleInput"><h11>*</h11>Sexo:</label>
+					   	<select class="form-control" id="sexo" value="${medico?.sexo}" name="medico.sexo">
 							<option selected="" value="">Selecione o Sexo</option>
 							#{list items:sexos, as: 'sexo'}
 								<option value="${sexo}" ${(medico?.sexo != null && medico.sexo == sexo)? 'selected':''}>${sexo}</option>
@@ -30,13 +35,13 @@
 					</div>
 					
 					<div class="form-group col-md-3">
-					   <label for="idade">Data de Nascimento:</label>
+					   <label for="formGroupExampleInput"><h11>*</h11>Data de Nascimento:</label>
 					   <input class="form-control" id="dataNas" type="date" value="${medico?.dataNas}" name="medico.dataNas">
 					</div>
 					
 					<div class="form-group col-md-2">
-					   	<label for="estCivil">Estado Civil:</label>
-					   	<select class="form-control form-control-sm" id="estCivil" value="${medico?.estCivil}" name="medico.estCivil">
+					   	<label for="formGroupExampleInput"><h11>*</h11>Estado Civil:</label>
+					   	<select class="form-control" id="estCivil" value="${medico?.estCivil}" name="medico.estCivil">
 							<option selected="" value="">Selecione</option>
 							#{list items:estadosCivis, as: 'estadocivil'}
 								<option value="${estadocivil}" ${(medico?.estCivil != null && medico.estCivil == estadocivil)? 'selected':''}>${estadocivil}</option>
@@ -46,24 +51,25 @@
 				</div>
 				
 				<div class="row">	
-					<div class="form-group col-md-2">
-					   <label for="naturalCidade">Naturalidade:</label>
-					   <input class="form-control" id="naturalCidade" placeholder="Nome da Cidade" type="text" value="${medico?.naturalCidade}" name="medico.naturalCidade">
-					</div>
 					
 					<div class="form-group col-md-3">
-					   <label for="estado">Estado:</label>
-					   <select class="form-control form-control-sm" id="estado" type="text" value="${medico?.estado}" name="medico.estado">
-							<option selected="" value="">Selecione o Estado (UF)</option>
-							#{list items:estados, as: 'estado'}
-								<option value="${estado}" ${(medico?.estado != null && medico.estado == estado)? 'selected':''}>${estado}</option>
-							#{/list}
+					   <label for="formGroupExampleInput"><h11>*</h11>Estado:</label>
+					   <select class="form-control" id="naturalEstado" value="${medico?.naturalEstado}" name="medico.naturalEstado">
+		
 					   	</select>
 					</div>
 					
 					<div class="form-group col-md-2">
-					   	<label for="nacionalidade">Nacionalidade:</label>
-					   	<select class="form-control form-control-sm" id="nacionalidade" type="text" value="${medico?.nacionalidade}" name="medico.nacionalidade">
+					   <label for="formGroupExampleInput""><h11>*</h11>Naturalidade:</label>
+					   <select class="form-control" id="naturalCidade" value="${medico?.naturalCidade}" name="medico.naturalCidade">
+					   
+					   </select>
+					</div>
+					
+					
+					<div class="form-group col-md-2">
+					   	<label for="formGroupExampleInput"><h11>*</h11>Nacionalidade:</label>
+					   	<select class="form-control" id="nacionalidade" type="text" value="${medico?.nacionalidade}" name="medico.nacionalidade">
 							<option selected="" value="">Selecione</option>
 							#{list items:nacionalidades, as: 'nacionalidade'}
 								<option value="${nacionalidade}" ${(medico?.nacionalidade != null && medico.nacionalidade == nacionalidade)? 'selected':''}>${nacionalidade}</option>
@@ -72,66 +78,75 @@
 					</div>
 					
 					<div class="form-group col-md-2">
-					   <label for="cpf">CPF:</label>
-					   <input class="form-control" id="cpf" type="text" value="${medico?.cpf}" name="medico.cpf">
+					   <label for="formGroupExampleInput"><h11>*</h11>CPF:</label>
+					   <input class="form-control" id="cpf" type="text" maxlength="14" value="${medico?.cpf}" name="medico.cpf" onkeydown="javascript: fMasc( this, mCPF );" placeholder="Ex.: 000.000.000-00">
 					</div>
 					
 					<div class="form-group col-md-3">
-					   <label for="rg">RG:</label>
-					   <input class="form-control" id="rg" placeholder="*.***.***" type="text" value="${medico?.rg}" name="medico.rg">
+					   <label for="formGroupExampleInput"><h11>*</h11>RG:</label>
+					   <input class="form-control" id="rg" type="text" maxlength="11" value="${medico?.rg}" name="medico.rg" onkeydown="javascript: fMasc( this, mRG );" placeholder="Ex.: 00000.000-0">
 					</div>
 				</div>
 				
 				<div class="row">
 					<div class="form-group col-md-3">
-					   <label for="telefone">Celular:</label>
-					   <input class="form-control" id="telefone" type="text" value="${medico?.telefone}" name="medico.telefone">
+					   <label for="formGroupExampleInput"><h11>*</h11>Celular:</label>
+					   <input class="form-control" id="telefone" maxlength="14" type="text" maxlength="14" value="${medico?.telefone}" name="medico.telefone" onkeydown="javascript: fMasc( this, mTel);" placeholder="Ex.: (00)00000-0000">
 					</div>
 					
-					<div class="form-group col-md-3">
-					   <label for="numCRM">CRM:</label>
-					   <input class="form-control" id="numCRM" type="text" value="${medico?.numCRM}" name="medico.numCRM">
+					<div class="form-group col-md-2">
+					   <label for="formGroupExampleInput"><h11>*</h11>UF do CRM:</label>
+					   <select class="form-control" id="UFcrm" value="${medico?.UFcrm}" name="medico.UFcrm">
+							<option selected="" value="">UF </option>
+							#{list items:estados, as: 'UFcrm'}
+								<option value="${UFcrm}" ${(medico?.UFcrm != null && medico.UFcrm == UFcrm)? 'selected':''}>${UFcrm}</option>
+							#{/list}
+					   	</select>
 					</div>
 					
-					<div class="form-group col-md-6">
-					   <label for="email">E-mail:</label>
-					   <input class="form-control" id="email" type="email" value="${medico?.email}" name="medico.email">
+					<div class="form-group col-md-2">
+					   <label for="formGroupExampleInput"><h11>*</h11>N° CRM:</label>
+					   <input class="form-control" id="numCRM" type="text" maxlength="10" value="${medico?.numCRM}" name="medico.numCRM">
 					</div>
 					
+					<div class="form-group col-md-5">
+					   <label for="formGroupExampleInput"><h11>*</h11>E-mail:</label>
+					   <input class="form-control" id="email" type="email" value="${medico?.email}" name="medico.email" placeholder="Ex.: anonymous@email.com">
+					</div>
 				</div>	
 				
 				</br>
 				<h6><b>Formação Médica</b></h6>
 				<div class="row">
 					<div class="form-group col-md-4">
-					   <label for="nomeFacul">Formado em:</label>
-					   <input class="form-control" id="nomeFacul" type="text" value="${medico?.nomeFacul}" name="medico.nomeFacul">
+					   <label for="formGroupExampleInput"><h11>*</h11>Formado em:</label>
+					   <input class="form-control" id="nomeFacul" type="text" value="${medico?.nomeFacul}" name="medico.nomeFacul" placeholder="Ex.: Medicina">
 					</div>
 					
 					<div class="form-group col-md-2">
-					   <label for="anoConc">Ano de Conclusão:</label>
-					   <input class="form-control" id="anoConc" type="text" value="${medico?.anoConc}" name="medico.anoConc">
+					   <label for="formGroupExampleInput"><h11>*</h11>Ano de Conclusão:</label>
+					   <input class="form-control" id="anoConc" type="text" maxlength="4" value="${medico?.anoConc}" name="medico.anoConc" placeholder="Ex.: 2000">
 					</div>	
 					
 					<div class="form-group col-md-3">
-					   <label for="residencia">Residencia em:</label>
+					   <label for="formGroupExampleInput"><h11>*</h11>Residencia em:</label>
 					   <input class="form-control" id="residencia" type="text" value="${medico?.residencia}" name="medico.residencia">
 					</div>
 					
 					<div class="form-group col-md-3">
-					   <label for="orgResid">Orgão Reg. Residencia:</label>
+					   <label for="formGroupExampleInput"><h11>*</h11>Orgão Reg. Residencia:</label>
 					   <input class="form-control" id="orgResid" type="text" value="${medico?.orgResid}" name="medico.orgResid">
 					</div>
 				</div>
 				
 				<div class="row">
 					<div class="form-group col-md-4">
-					   <label for="espPrincipal">Especialidade principal:</label>
-					   <input class="form-control" id="espPrincipal" type="text" value="${medico?.espPrincipal}" name="medico.espPrincipal">
+					   <label for="formGroupExampleInput"><h11>*</h11>Especialidade principal:</label>
+					   <input class="form-control" id="espPrincipal" type="text" value="${medico?.espPrincipal}" name="medico.espPrincipal" placeholder="Ex.: Fonoaudiologia">
 					</div>
 					
 					<div class="form-group col-md-4">
-					   <label for="titFormacao">Titulo (formação):</label>
+					   <label for="formGroupExampleInput"><h11>*</h11>Titulo (formação):</label>
 					   <input class="form-control" id="titFormacao" type="text" value="${medico?.titFormacao}" name="medico.titFormacao">
 					</div>
 				</div>	
@@ -140,45 +155,50 @@
 				<h6><b>Endereço Residencial</b></h6>
 				<div class="row">
 					<div class="form-group col-md-5">
-					   <label for="rua">Rua ou Avenida:</label>
+					   <label for="formGroupExampleInput"><h11>*</h11>Rua ou Avenida:</label>
 					   <input class="form-control" id="rua" type="text" value="${medico?.rua}" name="medico.rua">
 					</div>
+					
 					<div class="form-group col-md-1">
-					   <label for="numCasa">Número:</label>
+					   <label for="formGroupExampleInput"><h11>*</h11>Número:</label>
 					   <input class="form-control" id="numCasa" type="text" value="${medico?.numCasa}" name="medico.numCasa">
 					</div>
+					
 					<div class="form-group col-md-2">
-					   <label for="complemento">Complemento:</label>
-					   <input class="form-control" id="complemento" type="text" value="${medico?.complemento}" name="medico.complemento">
+					   <label for="formGroupExampleInput"><h11>*</h11>Complemento:</label>
+					   <input class="form-control" id="complemento" type="text" value="${medico?.complemento}" name="medico.complemento" placeholder="Ex.: casa">
 					</div>
+					
 					<div class="form-group col-md-4">
-					   <label for="bairro">Bairro:</label>
-					   <input class="form-control" id="bairro" type="text" value="${medico?.bairro}" name="medico.bairro">
+					   <label for="formGroupExampleInput"><h11>*</h11>Bairro:</label>
+					   <input class="form-control" id="bairro" type="text" value="${medico?.bairro}" name="medico.bairro" placeholder="Nome do bairro em que reside">
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="form-group col-md-4">
-					   <label for="cidade">Cidade:</label>
-					   <input class="form-control" id="cidade" type="text" value="${medico?.cidade}" name="medico.cidade">
-					</div>					
 					<div class="form-group col-md-3">
-					   <label for="estado">Estado:</label>
-					   <select class="form-control form-control-sm" id="estResidencia" type="text" value="${medico?.estResidencia}" name="medico.estResidencia">
-							<option selected="" value="">UF:</option>
-							#{list items:estados, as: 'estado'}
-								<option value="${estado}" ${(medico?.estResidencia != null && medico.estResidencia == estado)? 'selected':''}>${estado}</option>
-							#{/list}
+					   <label for="formGroupExampleInput""><h11>*</h11>Estado:</label>
+					   <select class="form-control" id="estado" value="${medico?.estado}" name="medico.estado">
+							
 					   	</select>
 					</div>
+				
+					<div class="form-group col-md-4">
+					   <label for="formGroupExampleInput""><h11>*</h11>Cidade:</label>
+					   <select class="form-control" id="cidade" value="${medico?.cidade}" name="medico.cidade">
+					   
+					   </select>
+					</div>					
+					
 					<div class="form-group col-md-2">
-					   <label for="cep">CEP:</label>
-					   <input class="form-control" id="cep" type="text" value="${medico?.cep}" name="medico.cep">
+					   <label for="formGroupExampleInput"><h11>*</h11>CEP:</label>
+					   <input class="form-control" id="cep" type="text" maxlength="10" value="${medico?.cep}" name="medico.cep" onkeydown="javascript: fMasc( this, mCEP );" placeholder="Ex.: 00.000-000">
 					</div>
 				</div>
+				<h12>* Campo Obrigátorio</h12>
 				
 				<div class="modal-footer">
-					<button type="submit" class="btn btn-success">Cadastrar</button>
+					<input class="btn btn-success" type="submit" value="${tituloAcaoForm}">
 					<button type="reset" class="btn btn-default" data-dismiss="modal">Limpar</button>
 				</div>
 
@@ -186,3 +206,58 @@
 		</div>
 	</div>
 </div>
+
+
+<script src="@{'/public/bootstrap/js/cidades-estados-utf8.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+<script src="@{'/public/bootstrap/js/CidadeEstado.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+
+<script type="text/javascript">
+	function fMasc(objeto, mascara) {
+		obj = objeto
+		masc = mascara
+		setTimeout("fMascEx()", 1)
+	}
+	function fMascEx() {
+		obj.value = masc(obj.value)
+	}
+	function mTel(tel) {
+		tel = tel.replace(/\D/g, "")
+		tel = tel.replace(/^(\d)/, "($1")
+		tel = tel.replace(/(.{3})(\d)/, "$1)$2")
+		if (tel.length == 9) {
+			tel = tel.replace(/(.{1})$/, "-$1")
+		} else if (tel.length == 10) {
+			tel = tel.replace(/(.{2})$/, "-$1")
+		} else if (tel.length == 11) {
+			tel = tel.replace(/(.{3})$/, "-$1")
+		} else if (tel.length == 12) {
+			tel = tel.replace(/(.{4})$/, "-$1")
+		} else if (tel.length > 12) {
+			tel = tel.replace(/(.{4})$/, "-$1")
+		}
+		return tel;
+	}
+
+	function mCPF(cpf) {
+		cpf = cpf.replace(/\D/g, "")
+		cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2")
+		cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2")
+		cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
+		return cpf
+	}
+	function mCEP(cep) {
+		cep = cep.replace(/\D/g, "")
+		cep = cep.replace(/^(\d{2})(\d)/, "$1.$2")
+		cep = cep.replace(/\.(\d{3})(\d)/, ".$1-$2")
+		return cep
+	}
+
+	function mRG(rg) {
+		rg = rg.replace(/\D/g, "");
+		rg = rg.replace(/(\d{3})(\d)/, "$1.$2")
+		rg = rg.replace(/(\d{3})(\d)/, "$1.$2")
+		rg = rg.replace(/(\d{3})(\d)/, "$1.$2")
+		return rg
+	}
+	
+</script>

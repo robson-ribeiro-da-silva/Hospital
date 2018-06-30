@@ -13,11 +13,11 @@ public class Pacientes extends Controller {
 	
 	public static void form(Paciente paciente) {
 		List<String> sexos = Arrays.asList(new String[]{"Masculino", "Feminino", "Outros",});
-		List<String> estados = Arrays.asList(new String[]{"Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Sul", "Rio Grande do Norte", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins"});
+		//List<String> estados = Arrays.asList(new String[]{"Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Sul", "Rio Grande do Norte", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins"});
 		List<String> tiposSanguineos = Arrays.asList(new String[]{"A+", "A-", "B+", "B-", "AB+","AB-", "O+", "O-"});
 		List<String> nacionalidades = Arrays.asList(new String[]{"Brasileira", "Estrangeira"});
 		List<String> estadosCivis = Arrays.asList(new String[]{"Solteiro(a)", "Casado(a)", "Divociado(a)", "Viúvo(a)", "Outro"});
-		render(paciente, sexos, estados, tiposSanguineos, nacionalidades, estadosCivis);
+		render(paciente, sexos, tiposSanguineos, nacionalidades, estadosCivis);
 	}
 	
 	public static void salvar(Paciente paciente) {
@@ -29,11 +29,11 @@ public class Pacientes extends Controller {
 	public static void editar(Long id) {
 		Paciente paciente = Paciente.findById(id);
 		List<String> sexos = Arrays.asList(new String[]{"Masculino", "Feminino", "Outros",});
-		List<String> estados = Arrays.asList(new String[]{"Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Sul", "Rio Grande do Norte", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins"});
+		//List<String> estados = Arrays.asList(new String[]{"Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Sul", "Rio Grande do Norte", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins"});
 		List<String> tiposSanguineos = Arrays.asList(new String[]{"A+", "A-", "B+", "B-", "AB+","AB-", "O+", "O-"});
 		List<String> nacionalidades = Arrays.asList(new String[]{"Brasileira", "Estrangeira"});
 		List<String> estadosCivis = Arrays.asList(new String[]{"Solteiro(a)", "Casado(a)", "Divociado(a)", "Viúvo(a)", "Outro"});
-		renderTemplate("Pacientes/editar.html", paciente, sexos, estados, tiposSanguineos, nacionalidades, estadosCivis);
+		renderTemplate("Pacientes/form.html", paciente, sexos, tiposSanguineos, nacionalidades, estadosCivis);
 	}
 	
 	public static void detalhes(Paciente paciente) {

@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.ManyToAny;
 
+import enums.TipoInternacao;
 import play.db.jpa.Model;
 
 @Entity
