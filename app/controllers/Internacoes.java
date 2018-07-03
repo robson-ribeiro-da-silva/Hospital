@@ -8,6 +8,7 @@ import models.Medico;
 import models.Paciente;
 import play.mvc.Controller;
 import play.mvc.With;
+
 @With(Seguranca.class)
 public class Internacoes extends Controller{
 	
