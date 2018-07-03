@@ -166,112 +166,112 @@
 -->
 
 <script>
-paciente.onload = function(){
+// paciente.onload = function(){
 	  
-    $("#add-paciente").click(function(){
+//     $("#add-paciente").click(function(){
     	
-    	var pacienteAdicionado = function(idPaciente){
-    		var inputHiddenPaci = $("#paci-"+idPaciente);
-    		console.log(inputHiddenPaci);
-    		console.log(inputHiddenPaci.lenght);
-    		return (inputHiddenPaci.val());
-    	};
+//     	var pacienteAdicionado = function(idPaciente){
+//     		var inputHiddenPaci = $("#paci-"+idPaciente);
+//     		console.log(inputHiddenPaci);
+//     		console.log(inputHiddenPaci.lenght);
+//     		return (inputHiddenPaci.val());
+//     	};
     	
-    	var selectPaciente = $('#sel-paciente').find(":selected");
-    	var nomePaciente = selectPaciente.text();
-    	var idPaciente = selectPaciente.val();
+//     	var selectPaciente = $('#sel-paciente').find(":selected");
+//     	var nomePaciente = selectPaciente.text();
+//     	var idPaciente = selectPaciente.val();
     	
-    	var html = "<li id='li-paci-" + idPaciente + "' class='list-group-item d-flex justify-content-between align-items-center'> " +
-		    		  	"<input id='paci-" + idPaciente + "' type='hidden' name='pacientesIDs' value='" + idPaciente + "'> " +
-		    		  		nomePaciente +
-		    		  		"<button type='button' class='del-paci btn btn-danger btn-sm' value='" + idPaciente + "'>" +
-		    		  		"<span class='glyphicon glyphicon-remove'></span> Remover " +
-		    		  		"</button>" +
-		    	   "</li>";
+//     	var html = "<li id='li-paci-" + idPaciente + "' class='list-group-item d-flex justify-content-between align-items-center'> " +
+// 		    		  	"<input id='paci-" + idPaciente + "' type='hidden' name='pacientesIDs' value='" + idPaciente + "'> " +
+// 		    		  		nomePaciente +
+// 		    		  		"<button type='button' class='del-paci btn btn-danger btn-sm' value='" + idPaciente + "'>" +
+// 		    		  		"<span class='glyphicon glyphicon-remove'></span> Remover " +
+// 		    		  		"</button>" +
+// 		    	   "</li>";
     	
-		console.log(idPaciente);
-		console.log(pacienteAdicionado(idPaciente));
+// 		console.log(idPaciente);
+// 		console.log(pacienteAdicionado(idPaciente));
 		
-		if(!pacienteAdicionado(idPaciente)){
-			$("#pacientes").append(html);
-		}else{
-			$.notify('O paciente <b>' + nomePaciente + '</b> jÃ¡ foi adicionado.');
-		}
+// 		if(!pacienteAdicionado(idPaciente)){
+// 			$("#pacientes").append(html);
+// 		}else{
+// 			$.notify('O paciente <b>' + nomePaciente + '</b> jÃ¡ foi adicionado.');
+// 		}
         
         
-        $(".del-paci").click(function(){
-        	var idPaciente = $(this).attr("value");
-        	$("#li-paci-" + idPaciente).remove();
-        });
-    });
+//         $(".del-paci").click(function(){
+//         	var idPaciente = $(this).attr("value");
+//         	$("#li-paci-" + idPaciente).remove();
+//         });
+//     });
     
     
-    $(".del-paci").click(function(){
-    	var idPaciente = $(this).attr("value");
-    	$("#li-paci-" + idPaciente).remove();
-    });
+//     $(".del-paci").click(function(){
+//     	var idPaciente = $(this).attr("value");
+//     	$("#li-paci-" + idPaciente).remove();
+//     });
     
-    $.notifyDefaults({
-    	type: 'success',
-    	allow_dismiss: true,
-    });
+//     $.notifyDefaults({
+//     	type: 'success',
+//     	allow_dismiss: true,
+//     });
     
-};
+// };
 
 </script>
 
 <script>
-window.onload =  function(){
+// window.onload =  function(){
 	  
-    $("#add-medico").click(function(){
+//     $("#add-medico").click(function(){
     	
-    	var medicoAdicionado = function(idMedico){
-    		var inputHiddenMed = $("#med-"+idMedico);
-    		console.log(inputHiddenMed);
-    		console.log(inputHiddenMed.lenght);
-    		return (inputHiddenMed.val());
-    	};
+//     	var medicoAdicionado = function(idMedico){
+//     		var inputHiddenMed = $("#med-"+idMedico);
+//     		console.log(inputHiddenMed);
+//     		console.log(inputHiddenMed.lenght);
+//     		return (inputHiddenMed.val());
+//     	};
     	
-    	var selectMedico = $('#sel-medico').find(":selected");
-    	var nomeMedico = selectMedico.text();
-    	var idMedico = selectMedico.val();
+//     	var selectMedico = $('#sel-medico').find(":selected");
+//     	var nomeMedico = selectMedico.text();
+//     	var idMedico = selectMedico.val();
     	
-    	var html = "<li id='li-med-" + idMedico + "' class='list-group-item d-flex justify-content-between align-items-center'> " +
-		    		  	"<input id='med-" + idMedico + "' type='hidden' name='medicosIDs' value='" + idMedico + "'> " +
-		    		  		nomeMedico +
-		    		  		"<button type='button' class='del-med btn btn-danger btn-sm' value='" + idMedico + "'>" +
-		    		  		"<span class='glyphicon glyphicon-remove'></span> Remover " +
-		    		  		"</button>" +
-		    	   "</li>";
+//     	var html = "<li id='li-med-" + idMedico + "' class='list-group-item d-flex justify-content-between align-items-center'> " +
+// 		    		  	"<input id='med-" + idMedico + "' type='hidden' name='medicosIDs' value='" + idMedico + "'> " +
+// 		    		  		nomeMedico +
+// 		    		  		"<button type='button' class='del-med btn btn-danger btn-sm' value='" + idMedico + "'>" +
+// 		    		  		"<span class='glyphicon glyphicon-remove'></span> Remover " +
+// 		    		  		"</button>" +
+// 		    	   "</li>";
     	
-		console.log(idMedico);
-		console.log(medicoAdicionado(idMedico));
+// 		console.log(idMedico);
+// 		console.log(medicoAdicionado(idMedico));
 		
-		if(!medicoAdicionado(idMedico)){
-			$("#medicos").append(html);
-		}else{
-			$.notify('O medico <b>' + nomeMedico + '</b> jÃ¡ foi adicionado.');
-		}
+// 		if(!medicoAdicionado(idMedico)){
+// 			$("#medicos").append(html);
+// 		}else{
+// 			$.notify('O medico <b>' + nomeMedico + '</b> jÃ¡ foi adicionado.');
+// 		}
         
         
-        $(".del-med").click(function(){
-        	var idMedico = $(this).attr("value");
-        	$("#li-med-" + idMedico).remove();
-        });
-    });
+//         $(".del-med").click(function(){
+//         	var idMedico = $(this).attr("value");
+//         	$("#li-med-" + idMedico).remove();
+//         });
+//     });
     
     
-    $(".del-med").click(function(){
-    	var idMedico = $(this).attr("value");
-    	$("#li-med-" + idMedico).remove();
-    });
+//     $(".del-med").click(function(){
+//     	var idMedico = $(this).attr("value");
+//     	$("#li-med-" + idMedico).remove();
+//     });
     
-    $.notifyDefaults({
-    	type: 'success',
-    	allow_dismiss: true,
-    });
+//     $.notifyDefaults({
+//     	type: 'success',
+//     	allow_dismiss: true,
+//     });
     
-};
+// };
 
 </script>
 
@@ -321,10 +321,113 @@ window.onload = function(){
     	$("#li-enf-" + idEnfermeiro).remove();
     });
     
-    $.notifyDefaults({
-    	type: 'success',
-    	allow_dismiss: true,
+//     $.notifyDefaults({
+//     	type: 'success',
+//     	allow_dismiss: true,
+//     });
+    
+    
+    // 
+    
+	  
+    $("#add-medico").click(function(){
+    	
+    	var medicoAdicionado = function(idMedico){
+    		var inputHiddenMed = $("#med-"+idMedico);
+    		console.log(inputHiddenMed);
+    		console.log(inputHiddenMed.lenght);
+    		return (inputHiddenMed.val());
+    	};
+    	
+    	var selectMedico = $('#sel-medico').find(":selected");
+    	var nomeMedico = selectMedico.text();
+    	var idMedico = selectMedico.val();
+    	
+    	var html = "<li id='li-med-" + idMedico + "' class='list-group-item d-flex justify-content-between align-items-center'> " +
+		    		  	"<input id='med-" + idMedico + "' type='hidden' name='medicosIDs' value='" + idMedico + "'> " +
+		    		  		nomeMedico +
+		    		  		"<button type='button' class='del-med btn btn-danger btn-sm' value='" + idMedico + "'>" +
+		    		  		"<span class='glyphicon glyphicon-remove'></span> Remover " +
+		    		  		"</button>" +
+		    	   "</li>";
+    	
+		console.log(idMedico);
+		console.log(medicoAdicionado(idMedico));
+		
+		if(!medicoAdicionado(idMedico)){
+			$("#medicos").append(html);
+		}else{
+			$.notify('O medico <b>' + nomeMedico + '</b> jÃ¡ foi adicionado.');
+		}
+        
+        
+        $(".del-med").click(function(){
+        	var idMedico = $(this).attr("value");
+        	$("#li-med-" + idMedico).remove();
+        });
     });
+    
+    
+    $(".del-med").click(function(){
+    	var idMedico = $(this).attr("value");
+    	$("#li-med-" + idMedico).remove();
+    });
+    
+//     $.notifyDefaults({
+//     	type: 'success',
+//     	allow_dismiss: true,
+//     });
+    
+    // 
+    
+    $("#add-paciente").click(function(){
+    	
+    	var pacienteAdicionado = function(idPaciente){
+    		var inputHiddenPaci = $("#paci-"+idPaciente);
+    		console.log(inputHiddenPaci);
+    		console.log(inputHiddenPaci.lenght);
+    		return (inputHiddenPaci.val());
+    	};
+    	
+    	var selectPaciente = $('#sel-paciente').find(":selected");
+    	var nomePaciente = selectPaciente.text();
+    	var idPaciente = selectPaciente.val();
+    	
+    	var html = "<li id='li-paci-" + idPaciente + "' class='list-group-item d-flex justify-content-between align-items-center'> " +
+		    		  	"<input id='paci-" + idPaciente + "' type='hidden' name='pacientesIDs' value='" + idPaciente + "'> " +
+		    		  		nomePaciente +
+		    		  		"<button type='button' class='del-paci btn btn-danger btn-sm' value='" + idPaciente + "'>" +
+		    		  		"<span class='glyphicon glyphicon-remove'></span> Remover " +
+		    		  		"</button>" +
+		    	   "</li>";
+    	
+		console.log(idPaciente);
+		console.log(pacienteAdicionado(idPaciente));
+		
+		if(!pacienteAdicionado(idPaciente)){
+			$("#pacientes").append(html);
+		}else{
+			$.notify('O paciente <b>' + nomePaciente + '</b> jÃ¡ foi adicionado.');
+		}
+        
+        
+        $(".del-paci").click(function(){
+        	var idPaciente = $(this).attr("value");
+        	$("#li-paci-" + idPaciente).remove();
+        });
+    });
+    
+    
+    $(".del-paci").click(function(){
+    	var idPaciente = $(this).attr("value");
+    	$("#li-paci-" + idPaciente).remove();
+    });
+    
+//     $.notifyDefaults({
+//     	type: 'success',
+//     	allow_dismiss: true,
+//     });
+    
     
 };
 
