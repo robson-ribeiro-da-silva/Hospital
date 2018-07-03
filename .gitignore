@@ -1,0 +1,6 @@
+# Ignore Play! working directory #
+/tmp
+/modules
+/lib
+/test-result
+/logs
