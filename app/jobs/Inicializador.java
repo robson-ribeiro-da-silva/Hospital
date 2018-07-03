@@ -1,14 +1,19 @@
 package jobs;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import enums.TipoCorAla;
 import enums.TipoInternacao;
+import models.AlaHospitalar;
 import models.Enfermeiro;
 import models.Internacao;
+import models.LeitosPorQuarto;
 import models.Medico;
 import models.Paciente;
+import models.QuartosPorAla;
 import models.Usuario;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
@@ -116,6 +121,8 @@ public class Inicializador extends Job {
 			internacao.save();
 		}
 		*/
+		
+		
 	}
 
 }
