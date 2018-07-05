@@ -1,6 +1,6 @@
 package models;
 
-import java.sql.Blob;
+
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -8,6 +8,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import play.db.jpa.Blob;
 import play.db.jpa.Model;
 
 @Entity
