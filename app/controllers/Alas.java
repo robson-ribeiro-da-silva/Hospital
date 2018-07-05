@@ -2,7 +2,6 @@ package controllers;
 
 import java.util.Arrays;
 import java.util.List;
-
 import models.AlaHospitalar;
 import play.mvc.Controller;
 
@@ -16,7 +15,6 @@ public class Alas extends Controller {
 	public static void salvar(AlaHospitalar alahospitalar) {
 		alahospitalar.save();
 		listar();
-
 	}
 
 	public static void editar(Long id) {
@@ -26,20 +24,17 @@ public class Alas extends Controller {
 
 	public static void detalhes(AlaHospitalar alahospitalar) {
 		render(alahospitalar);
-
 	}
 
 	public static void listar() {
 		List<AlaHospitalar> alahospitalares = AlaHospitalar.findAll();
 		render(alahospitalares);
-
 	}
 
 	public static void remover(Long id) {
 		AlaHospitalar alahospitalar = AlaHospitalar.findById(id);
 		alahospitalar.delete();
 		listar();
-
 	}
 
 }

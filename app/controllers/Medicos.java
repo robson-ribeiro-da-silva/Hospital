@@ -47,5 +47,4 @@ public class Medicos extends Controller{
 		flash.success("Médico removido com sucesso!");
 		listar();
 	}
-
 }

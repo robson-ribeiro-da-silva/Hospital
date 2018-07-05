@@ -12,5 +12,4 @@ public class Seguranca extends Controller{
             Application.index();
         }
     }
-
 }
