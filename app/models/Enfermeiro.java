@@ -1,14 +1,13 @@
 package models;
 
+import java.sql.Blob;
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import play.db.jpa.Model;
 
 @Entity
@@ -16,6 +15,8 @@ public class Enfermeiro extends Model {
 
 	public String nome;
 	public String sexo;
+	
+	public Blob foto;
 
 	@Temporal(TemporalType.DATE)
 	public Date dataNas;
