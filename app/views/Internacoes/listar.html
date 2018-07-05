@@ -21,7 +21,8 @@
 	<table class="table dataTable" id="dataTable">
 		<thead>
 			<tr>
-				<th rowspan="1" colspan="1" width=50%>Nome do paciente</th>
+				<th rowspan="1" colspan="1" width=30%>Nome do paciente</th>
+				<th rowspan="1" colspan="1" width=20%>CPF do Paciente</th>
 				<th rowspan="1" colspan="1" width=15%>Nome do medico</th>
 		       	<th rowspan="1" colspan="1" width=15%>Nome do enfermeiro</th>
 		        <th rowspan="1" colspan="1" width=20%>Ações</th>
@@ -31,8 +32,9 @@
        
      	<tbody>
 			#{list items:internacoes, as:'internacao'}
-		<tr role="row">
+		<tr role="row">			
            <td>${internacao.pacientes.nome}</td>
+           <td>${internacao.pacientes.cpf}</td>
            <td>${internacao.medicos.nome}</td>
            <td>${internacao.enfermeiros.nome}</td>
            	<td align="right" valign="middle">

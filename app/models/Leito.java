@@ -1,22 +1,22 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
+
 
 import play.db.jpa.Model;
 
 @Entity
-public class LeitosPorQuarto extends Model {
+public class Leito extends Model {
 	
 	public String numeroLeito;
 	public boolean ocupado = false;
 
-	@ManyToOne
-	@JoinColumn(name="quarto_id")
-	public QuartosPorAla quarto;
+	@ManyToMany(mappedBy="leitos")
+	public List<Quarto> quartos;
 	
 	
 }

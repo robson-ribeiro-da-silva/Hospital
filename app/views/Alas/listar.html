@@ -16,24 +16,24 @@
 	       	</thead>
 	       	<tbody>
 		
-			#{list items:alahospitalares, as:'alahospitalar'}
+			#{list items:alas, as:'ala'}
 			<tr role="row">
 	        	
-	           	<td>${alahospitalar.nomeAla}</td>
+	           	<td>${ala.nomeAla}</td>
 	                     
 	           	
 	           	<td>
-	           		<a class="btn1 btn-default" href="@{Alas.detalhes(alahospitalar)}">
+	           		<a class="btn1 btn-default" href="@{Alas.detalhes(ala)}">
            					<button class="btn">
            						<i class="fa fa-fw fa fa-bars"></i>
            					</button>
            				</a>
-		           		<a class="btn1 btn-default" href="@{Alas.editar(alahospitalar.id)}">
+		           		<a class="btn1 btn-default" href="@{Alas.editar(ala.id)}">
 		           			<button class="btn">
 		           				<i class="fa fa-fw fa-pencil"></i>
 		           			</button>
 		           		</a>
-	           	  		<a class="btn1 btn-default" href="@{Alas.remover(alahospitalar.id)}">
+	           	  		<a class="btn1 btn-default" href="@{Alas.remover(ala.id)}">
 	           	  			<button class="btn">
 	           	  				<i class="fa fa-fw fa-trash"></i>
 	           	  			</button>

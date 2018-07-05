@@ -1,26 +1,28 @@
 package models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
 
 @Entity
-public class QuartosPorAla extends Model {
+public class Quarto extends Model {
 	
 	public String numeroQuarto;
 	
-	@OneToMany(mappedBy="quarto")
-	public  List<LeitosPorQuarto> leitos;
+	@ManyToMany
+	@JoinTable(name="leito_id")
+	public  List<Leito> leitos;
 	
 	@ManyToOne
-	@JoinColumn(name="ala_id")
-	public AlaHospitalar ala;
-	
+	@JoinTable(name="ala_id")
+	public Ala ala;
+
 
 }

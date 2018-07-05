@@ -2,8 +2,8 @@
 #{set title:'Formulário Ala' /}
 
 %{
-	String tituloAcaoForm = alahospitalar.id == null? "Cadastrar":"Salvar Alterações"; 
-	String tituloForm = alahospitalar.id == null? "Cadastro":"Edição";
+	String tituloAcaoForm = ala.id == null? "Cadastrar":"Salvar Alterações"; 
+	String tituloForm = ala.id == null? "Cadastro":"Edição";
 }%
 
 <meta charset="utf-8">
@@ -15,16 +15,16 @@
           
 		<form action="@{Alas.salvar}" name="Filter" class="form" method="post">
 			
-			<input type="hidden" value="${alahospitalar?.id}" name="alahospitalar.id">
+			<input type="hidden" value="${ala?.id}" name="ala.id">
 			
 				
 				<div class="row">					
 					<div class="form-group col-md-4">
 					   	<label for="formGroupExampleInput"><h11>*</h11>Tipo da Ala:</label>
-					   	<select class="form-control" id="nomeAla" value="${alahospitalar?.nomeAla}" name="alahospitalar.nomeAla">
+					   	<select class="form-control" id="nomeAla" value="${ala?.nomeAla}" name="ala.nomeAla">
 							<option selected="" value="">Selecione a Ala</option>
 							#{list items:tiposAla, as: 'tipoAla'}
-								<option value="${tipoAla}" ${(alahospitalar?.nomeAla != null && alahospitalar.nomeAla == tipoAla)? 'selected':''}>${tipoAla}</option>
+								<option value="${tipoAla}" ${(ala?.nomeAla != null && ala.nomeAla == tipoAla)? 'selected':''}>${tipoAla}</option>
 							#{/list}
 					   	</select>
 					</div>

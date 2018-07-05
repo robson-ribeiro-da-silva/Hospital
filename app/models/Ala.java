@@ -12,12 +12,12 @@ import enums.TipoCorAla;
 import play.db.jpa.Model;
 
 @Entity
-public class AlaHospitalar extends Model{
+public class Ala extends Model{
 	
 	public String nomeAla;
 		
 	@OneToMany(mappedBy="ala")
-	public  List<QuartosPorAla> quartos;
+	public  List<Quarto> quartos;
 	
 
 }

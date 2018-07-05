@@ -1,30 +1,59 @@
 #{extends 'principal.html' /}
 #{set title:'Formulário Quarto' /}
 
-%{
-	String tituloAcaoForm = quartosporala.id == null? "Cadastrar":"Salvar Alterações"; 
-	String tituloForm = quartosporala.id == null? "Cadastro":"Edição";
-}%
 
 <meta charset="utf-8">
-<div id="pacie">
+<div id="quarto">
 <div class="card mb-3">
 	<div class="card-header">
-		<i class="fa fa-bookmark"></i> ${tituloForm} de Ala</div>
+		<i class="fa fa-bookmark"></i> ${tituloForm} de Quarto</div>
 	<div class="card-body">
           
 		<form action="@{Quartos.salvar}" name="Filter" class="form" method="post">
 			
-			<input type="hidden" value="${quartosporala?.id}" name="quartosporala.id">
+			<input type="hidden" value="${quarto?.id}" name="quarto.id">
 			
 				
 				<h6><b>Identificação do Quarto</b></h6>
 				<div class="row">
 					<div class="form-group col-md-3">
 					   <label for="formGroupExampleInput"><h11>*</h11>Numero:</label>
-					   <input class="form-control" id="numeroQuarto" type="text" value="${quartosporala?.numeroQuarto}" name="quartosporala.numeroQuarto" placeholder="Ex: 000">
+					   <input class="form-control" id="numeroQuarto" type="text" value="${quarto?.numeroQuarto}" name="quarto.numeroQuarto" placeholder="Ex: 000">
 					</div>
 				</div>
+				
+				<label for="leitosAssociados">Selecione o leito para adicionar:</label>
+				<div class="input-group mb-3">
+				
+					
+								
+					<select id="sel-leito" class="form-control"">  
+					   		#{list items:leitos , as:'leito '}
+					   			<option value="${leitos.id}">${leitos.numeroLeito}</option>
+					   		#{/list}
+					</select>
+					
+					
+					<div class="input-group-append">	
+							<button type="button" class="btn btn-success" id="add-leito">Adicionar Leito</button>
+					</div>
+					</div>
+					
+					<ul id="leito" class="list-group list-group-flush">
+				#{if quarto != null && quarto.leitos != null}
+					#{list items:quarto.leitos, as: 'leito'}
+						<li id="li-lei-${leito.id}" class="list-group-item d-flex justify-content-between align-items-center">
+							<input id='lei-${leito.id}' type='hidden' name='leitosIDs' value='${leito.id}'>
+							
+							${leito.numeroLeito} 
+														
+							<button type="button" class="btn btn-danger btn-sm del-lei" value="${leito.id}">
+          						<span class="glyphicon glyphicon-remove"></span> Remover 
+        					</button>
+						</li>
+					#{/list}	
+				#{/if}
+					</ul>
 					
 					<div class="modal-footer">
 					<input class="btn btn-success" type="submit" value="${tituloAcaoForm}">
@@ -35,3 +64,58 @@
 		</div>
 	</div>
 </div>
+
+<script>
+ window.onload =  function(){
+	  
+     $("#add-leito").click(function(){
+    	
+     	var leitoAdicionado = function(idLeito){
+     		var inputHiddenLei = $("#lei-"+idLeito);
+     		console.log(inputHiddenLei);
+     		console.log(inputHiddenLei.lenght);
+     		return (inputHiddenLei.val());
+     	};
+    	
+     	var selectLeito = $('#sel-leito').find(":selected");
+     	var numeroLeito = selectLeito.text();
+     	var idLeito = selectLeito.val();
+    	
+     	var html = "<li id='li-lei-" + idLeito + "' class='list-group-item d-flex justify-content-between align-items-center'> " +
+ 		    		  	"<input id='lei-" + idLeito + "' type='hidden' name='leitosIDs' value='" + idLeito + "'> " +
+ 		    		  		numeroLeito +
+ 		    		  		"<button type='button' class='del-lei btn btn-danger btn-sm' value='" + idLeito + "'>" +
+ 		    		  		"<span class='glyphicon glyphicon-remove'></span> Remover " +
+ 		    		  		"</button>" +
+ 		    	   "</li>";
+    	
+ 		console.log(idLeito);
+ 		console.log(leitoAdicionado(idLeito));
+		
+ 		if(!leitoAdicionado(idLeito)){
+ 			$("#leitos").append(html);
+ 		}else{
+ 			$.notify('O leito <b>' + numeroleito + '</b> jÃ¡ foi adicionado.');
+ 		}
+        
+        
+         $(".del-lei").click(function(){
+         	var idLeito = $(this).attr("value");
+         	$("#li-lei-" + idLeito).remove();
+         });
+     });
+    
+    
+     $(".del-lei").click(function(){
+     	var idLeito = $(this).attr("value");
+     	$("#li-lei-" + idLeito).remove();
+     });
+    
+     $.notifyDefaults({
+     	type: 'success',
+     	allow_dismiss: true,
+     });
+    
+ };
+
+</script>

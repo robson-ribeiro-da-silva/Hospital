@@ -16,24 +16,24 @@
 	       	</thead>
 	       	<tbody>
 		
-			#{list items:leitosporquartos, as:'leitosporquarto'}
+			#{list items:leitos, as:'leito'}
 			<tr role="row">
 	        	
-	           	<td>${leitosporquarto.numeroLeito}</td>
+	           	<td>${leito.numeroLeito}</td>
 	                     
 	           	
 	           	<td>
-	           		<a class="btn1 btn-default" href="@{Leitos.detalhes(leitosporquarto)}">
+	           		<a class="btn1 btn-default" href="@{Leitos.detalhes(leito)}">
            					<button class="btn">
            						<i class="fa fa-fw fa fa-bars"></i>
            					</button>
            				</a>
-		           		<a class="btn1 btn-default" href="@{Leitos.editar(leitosporquarto.id)}">
+		           		<a class="btn1 btn-default" href="@{Leitos.editar(leito.id)}">
 		           			<button class="btn">
 		           				<i class="fa fa-fw fa-pencil"></i>
 		           			</button>
 		           		</a>
-	           	  		<a class="btn1 btn-default" href="@{Leitos.remover(leitosporquarto.id)}">
+	           	  		<a class="btn1 btn-default" href="@{Leitos.remover(leito.id)}">
 	           	  			<button class="btn">
 	           	  				<i class="fa fa-fw fa-trash"></i>
 	           	  			</button>

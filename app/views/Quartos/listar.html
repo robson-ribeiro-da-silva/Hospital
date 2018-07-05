@@ -16,24 +16,24 @@
 	       	</thead>
 	       	<tbody>
 		
-			#{list items:quartosporalas, as:'quartosporala'}
+			#{list items:quartos, as:'quarto'}
 			<tr role="row">
 	        	
-	           	<td>${quartosporala.numeroQuarto}</td>
+	           	<td>${quarto.numeroQuarto}</td>
 	                     
 	           	
 	           	<td>
-	           		<a class="btn1 btn-default" href="@{Quartos.detalhes(quartosporala)}">
+	           		<a class="btn1 btn-default" href="@{Quartos.detalhes(quarto)}">
            					<button class="btn">
            						<i class="fa fa-fw fa fa-bars"></i>
            					</button>
            				</a>
-		           		<a class="btn1 btn-default" href="@{Quartos.editar(quartosporala.id)}">
+		           		<a class="btn1 btn-default" href="@{Quartos.editar(quarto.id)}">
 		           			<button class="btn">
 		           				<i class="fa fa-fw fa-pencil"></i>
 		           			</button>
 		           		</a>
-	           	  		<a class="btn1 btn-default" href="@{Quartos.remover(quartosporala.id)}">
+	           	  		<a class="btn1 btn-default" href="@{Quartos.remover(quarto.id)}">
 	           	  			<button class="btn">
 	           	  				<i class="fa fa-fw fa-trash"></i>
 	           	  			</button>

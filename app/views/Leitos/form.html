@@ -2,8 +2,8 @@
 #{set title:'Formulário Leito' /}
 
 %{
-	String tituloAcaoForm = leitosporquarto.id == null? "Cadastrar":"Salvar Alterações"; 
-	String tituloForm = leitosporquarto.id == null? "Cadastro":"Edição";
+	String tituloAcaoForm = leito.id == null? "Cadastrar":"Salvar Alterações"; 
+	String tituloForm = leito.id == null? "Cadastro":"Edição";
 }%
 
 <meta charset="utf-8">
@@ -15,14 +15,14 @@
           
 		<form action="@{Leitos.salvar}" name="Filter" class="form" method="post">
 			
-			<input type="hidden" value="${leitosporquarto?.id}" name="leitosporquarto.id">
+			<input type="hidden" value="${leito?.id}" name="leito.id">
 			
 				
 				<h6><b>Identificação do Leito</b></h6>
 				<div class="row">
 					<div class="form-group col-md-3">
 					   <label for="formGroupExampleInput"><h11>*</h11>Numero:</label>
-					   <input class="form-control" id="numeroLeito" type="text" value="${leitosporquarto?.numeroLeito}" name="leitosporquarto.numeroLeito" placeholder="Ex: 000">
+					   <input class="form-control" id="numeroLeito" type="text" value="${leito?.numeroLeito}" name="leito.numeroLeito" placeholder="Ex: 000">
 					</div>
 				</div>
 					
