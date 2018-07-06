@@ -20,7 +20,12 @@ public class Enfermeiros extends Controller {
 	}
 	
 	public static void salvar(@Valid Enfermeiro enfermeiro) {
-		
+		System.out.println(params.get("excluirFoto"));
+
+		if(params.get("excluirFoto") != null) {
+			enfermeiro.foto.getFile().delete();
+		}
+		/*
 		System.out.println(validation.hasErrors());
 		
 		if(validation.hasErrors()) {
@@ -28,13 +33,12 @@ public class Enfermeiros extends Controller {
 			params.flash();
 			form();
 		}
+		*/
 		
-		if(params.get("excluirFoto") != null) {
-			enfermeiro.foto.getFile().delete();
-		}
 		
 		enfermeiro.save();
 		flash.success("Enfermeiro cadastrado com sucesso!");
+		
 		listar();
 	}
 	
@@ -50,6 +54,7 @@ public class Enfermeiros extends Controller {
 	public static void detalhes(Enfermeiro enfermeiro) {
 		render(enfermeiro);
 	}
+	
 	
 	public static void listar() {
 		List<Enfermeiro> enfermeiros = Enfermeiro.findAll();
