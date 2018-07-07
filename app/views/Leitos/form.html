@@ -2,8 +2,8 @@
 #{set title:'Formulário Leito' /}
 
 %{
-	String tituloAcaoForm = leito.id == null? "Cadastrar":"Salvar Alterações"; 
-	String tituloForm = leito.id == null? "Cadastro":"Edição";
+	String tituloAcaoForm = leito?.id == null? "Cadastrar":"Salvar Alterações"; 
+	String tituloForm = leito?.id == null? "Cadastro":"Edição";
 }%
 
 <meta charset="utf-8">
@@ -25,6 +25,8 @@
 					   <input class="form-control" id="numeroLeito" type="text" value="${leito?.numeroLeito}" name="leito.numeroLeito" placeholder="Ex: 000">
 					</div>
 				</div>
+				
+				
 					
 					<div class="modal-footer">
 					<input class="btn btn-success" type="submit" value="${tituloAcaoForm}">

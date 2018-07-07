@@ -15,13 +15,26 @@ public class Quartos extends Controller{
 
 	public static void salvar(Quarto quarto, List<String> leitosIDs) {
 		
-		if(leitosIDs == null || leitosIDs.isEmpty()) {
-			quarto.leitos = null;
-		} else {
-			String IDs = "(" + String.join(", ", leitosIDs) + ")";
-			String query = "select l from Leito l where l.id in " + IDs;
-			List<Leito> leitos = Leito.find(query).fetch();
-			quarto.leitos = leitos;
+		String IDs = "-1";
+		if(leitosIDs != null)
+			IDs = String.join(", ", leitosIDs);
+			
+		String query = "select l from Leito l where l.id in (" + IDs + ")";			
+		List<Leito> leitosAssociados = Leito.find(query).fetch();
+		for(Leito leito: leitosAssociados) {
+			leito.quarto = quarto;
+			leito.save();
+		}
+		
+		query = "select l from Leito l where l.id not in ("+ IDs + ")";	
+		System.out.println(query);
+		List<Leito> leitosNaoAssociados = Leito.find(query).fetch();
+		for(Leito leito: leitosNaoAssociados) {
+			if(leito.quarto != null && 
+			  leito.quarto.id == quarto.id) {
+				leito.quarto = null;
+				leito.save();
+			}
 		}
 		quarto.save();
 		flash.success("quarto salvo com sucesso!");

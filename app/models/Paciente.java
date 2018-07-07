@@ -49,5 +49,6 @@ public class Paciente extends Model {
 	
 	@ManyToMany(mappedBy="pacientes")
 	public List<Internacao>internacoes;
-		
+	
+	
 }

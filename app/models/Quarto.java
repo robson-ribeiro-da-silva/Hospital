@@ -16,12 +16,11 @@ public class Quarto extends Model {
 	
 	public String numeroQuarto;
 	
-	@ManyToMany
-	@JoinTable(name="leito_id")
+	@OneToMany(mappedBy="quarto")
 	public  List<Leito> leitos;
 	
 	@ManyToOne
-	@JoinTable(name="ala_id")
+	@JoinColumn(name="ala_id")
 	public Ala ala;
 
 
