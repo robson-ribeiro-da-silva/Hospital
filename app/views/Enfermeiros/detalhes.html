@@ -7,10 +7,16 @@
   	<div class="card-header">
     	<i class="fa fa-table"></i>Detalhes Enfermeiro</div>
   	<div class="card-body">
+  		
+  		
 		
 	<table id="tableCrud" class="table table-bordered table-striped table-hover dataTable no-footer" role="grid" aria-describedby="tableCrud_info">
 			
 		<h4><b>Dados Pessoais</b></h4>
+		
+		#{if enfermeiro.foto?.exists()}
+  			<img height="150px" width="150px" src="@{Enfermeiros.fotoEnfermeiro(enfermeiro.id)}"><br>
+  		#{/if}	
 			
 			<tr height=30%>
 				<td width=20% align="right"><h6><b>Nome:</b></h6></td>

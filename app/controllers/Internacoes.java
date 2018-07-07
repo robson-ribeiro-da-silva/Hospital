@@ -48,8 +48,7 @@ public class Internacoes extends Controller{
 			List<Enfermeiro> enfermeiros = Enfermeiro.find(query).fetch();
 			internacao.enfermeiros = enfermeiros;
 		}
-
-		
+	
 		internacao.save();
 		//flash.success("Internaçao cadastrada com sucesso!");
 		listar();

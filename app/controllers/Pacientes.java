@@ -2,14 +2,12 @@ package controllers;
 
 import java.util.Arrays;
 import java.util.List;
-
 import models.Paciente;
 import play.mvc.Controller;
 import play.mvc.With;
 
 @With(Seguranca.class)
 public class Pacientes extends Controller {
-	
 	
 	public static void form(Paciente paciente) {
 		List<String> sexos = Arrays.asList(new String[]{"Masculino", "Feminino", "Outros",});
@@ -51,5 +49,4 @@ public class Pacientes extends Controller {
 		flash.success("Paciente removido com sucesso!");
 		listar();
 	}
-
 }

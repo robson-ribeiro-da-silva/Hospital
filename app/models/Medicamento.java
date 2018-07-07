@@ -19,6 +19,7 @@ public class Medicamento extends Model {
 	public String nomeMedicamento;
 	public String fabricante;
 	
+<<<<<<< HEAD
 	public Date dataPrescrita;
 	public int horariodosagem;
 	public Date dataAplicar;
@@ -30,4 +31,6 @@ public class Medicamento extends Model {
 	
 	
 
+=======
+>>>>>>> branch 'master' of https://github.com/robson-ribeiro-da-silva/Hospital.git
 }

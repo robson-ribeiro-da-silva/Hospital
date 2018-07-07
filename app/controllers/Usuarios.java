@@ -10,5 +10,4 @@ public class Usuarios extends Controller{
 		Usuario u = Usuario.find("usuario.id = ?", usuario.id).first();
 		return u;
 	}
-
 }

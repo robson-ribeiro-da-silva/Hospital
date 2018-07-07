@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #{extends 'principal.html' /}
 #{set title:'Formulário Medicamento' /}
 
@@ -66,4 +67,42 @@
 			</form>
 		</div>
 	</div>
+=======
+#{extends 'main.html' /}
+#{set title:'Formulário' /}
+
+<meta charset="utf-8">
+<div id="pacie">
+	<div class="card mb-3">
+	
+		<div class="card-header">
+			<i class="fa fa-table"></i>Cadastro de Medicamento
+		</div>
+		<div class="card-body">
+	
+			<form action="@{Medicamentos.salvar}" method="post">
+				<input type="hidden" value="${medicamento?.id}" name="medicamento.id">
+				
+				<div class="row">
+					<div class="form-group col-md-6">
+					   <label for="nomeMed">Nome:</label>
+					   <input class="form-control" id="nomeMedicamento" type="text" value="${medicamento?.nomeMedicamento}" name="medicamento.nomeMedicamento">
+					</div>
+				</div>	
+				
+				<div class="row">	
+					<div class="form-group col-md-2">
+					   <label for="fabricante">Fabricante:</label>
+					   <input class="form-control" id="fabricante" type="text" value="${medicamento?.fabricante}" name="medicamento.fabricante">
+					</div>
+				</div>
+				
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-success">Cadastrar</button>
+					<button type="reset" class="btn btn-default" data-dismiss="modal">Limpar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+>>>>>>> branch 'master' of https://github.com/robson-ribeiro-da-silva/Hospital.git
 </div>
