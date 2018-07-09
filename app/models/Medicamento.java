@@ -19,18 +19,12 @@ public class Medicamento extends Model {
 	public String nomeMedicamento;
 	public String fabricante;
 	
-<<<<<<< HEAD
 	public Date dataPrescrita;
 	public int horariodosagem;
 	public Date dataAplicar;
-	
 	
 	@ManyToMany
 	@JoinTable(name="leito_id")
 	public List<Leito> leitos; 
 	
-	
-
-=======
->>>>>>> branch 'master' of https://github.com/robson-ribeiro-da-silva/Hospital.git
 }

@@ -2,13 +2,8 @@ package controllers;
 
 import java.util.Arrays;
 import java.util.List;
-<<<<<<< HEAD
-
 import models.Ala;
 import models.Quarto;
-=======
-import models.AlaHospitalar;
->>>>>>> branch 'master' of https://github.com/robson-ribeiro-da-silva/Hospital.git
 import play.mvc.Controller;
 
 public class Alas extends Controller {
@@ -52,25 +47,16 @@ public class Alas extends Controller {
 		renderTemplate("Alas/form.html", ala);
 	}
 
-<<<<<<< HEAD
+
 	public static void detalhes(Ala ala) {
 		render(ala);
-
-=======
-	public static void detalhes(AlaHospitalar alahospitalar) {
-		render(alahospitalar);
->>>>>>> branch 'master' of https://github.com/robson-ribeiro-da-silva/Hospital.git
 	}
 
+
 	public static void listar() {
-<<<<<<< HEAD
+
 		List<Ala> alas = Ala.findAll();
 		render(alas);
-
-=======
-		List<AlaHospitalar> alahospitalares = AlaHospitalar.findAll();
-		render(alahospitalares);
->>>>>>> branch 'master' of https://github.com/robson-ribeiro-da-silva/Hospital.git
 	}
 
 	public static void remover(Long id) {
