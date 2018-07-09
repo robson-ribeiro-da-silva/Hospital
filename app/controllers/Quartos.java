@@ -1,27 +1,17 @@
 package controllers;
 
 import java.util.List;
-<<<<<<< HEAD
-
 import models.Leito;
 import models.Quarto;
-=======
-import models.QuartosPorAla;
->>>>>>> branch 'master' of https://github.com/robson-ribeiro-da-silva/Hospital.git
 import play.mvc.Controller;
 
 public class Quartos extends Controller{
 	
-
 	public static void form() {
 		List<Leito> leitos = Leito.findAll();
 		render(leitos);
-
-	public static void form(QuartosPorAla quartosporala) {
-		render(quartosporala);
-		branch 'master' of https://github.com/robson-ribeiro-da-silva/Hospital.git
 	}
-
+	
 	public static void salvar(Quarto quarto, List<String> leitosIDs) {
 		
 		String IDs = "-1";
@@ -51,35 +41,17 @@ public class Quartos extends Controller{
 	}
 
 	public static void editar(Long id) {
-
 		Quarto quarto = Leito.findById(id);
 		renderTemplate("Quartos/form.html", quarto);
-
-
-		QuartosPorAla quartosporala = QuartosPorAla.findById(id);
-		renderTemplate("Quartos/form.html", quartosporala);
-		branch 'master' of https://github.com/robson-ribeiro-da-silva/Hospital.git
 	}
-
 
 	public static void detalhes(Quarto quarto) {
 		render(quarto);
-
-
-	public static void detalhes(QuartosPorAla quartosporala) {
-		render(quartosporala);
-		branch 'master' of https://github.com/robson-ribeiro-da-silva/Hospital.git
 	}
 
 	public static void listar() {
-
 		List<Quarto> quartos = Quarto.findAll();
 		render(quartos);
-
-
-		List<QuartosPorAla> quartosporalas = QuartosPorAla.findAll();
-		render(quartosporalas);
-		branch 'master' of https://github.com/robson-ribeiro-da-silva/Hospital.git
 	}
 
 	public static void remover(Long id) {
